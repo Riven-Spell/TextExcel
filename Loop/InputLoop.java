@@ -1,0 +1,75 @@
+package source.Loop;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import source.Types.Fraction;
+import source.Types.Variable;
+
+public class InputLoop {
+	public static boolean debugLog = false;
+	public static ArrayList<Variable> vars = new ArrayList<Variable>();
+	
+	public void run()
+	{
+		Scanner s = new Scanner(System.in);
+		String input = "";
+		while(!input.equals("exit"))
+		{
+			System.out.println(vars.size());
+			System.out.println("");
+			System.out.print(">");
+			input = s.nextLine();
+			while(input.indexOf('#') != -1)
+			{
+				for(Variable v:vars)
+				{
+					if(input.substring(input.indexOf('#')+1).indexOf(v.n) == 0)
+					{
+						if(v.s.top != 0 && v.s.wNum > 0)
+							input = input.substring(0,input.indexOf('#')) + v.s.wNum + "_" + v.s.top + "/" + v.s.bottom + input.substring(input.indexOf('#')+1+v.n.length());
+						else if(v.s.top != 0)
+							input = input.substring(0,input.indexOf('#')) + v.s.top + "/" + v.s.bottom + input.substring(input.indexOf('#')+1+v.n.length());
+						else
+							input = input.substring(0,input.indexOf('#')) + v.s.wNum + input.substring(input.indexOf('#')+1+v.n.length());
+					}
+				}
+			}
+			//try
+			//{
+				Fraction answer = source.Loop.ParseLoop.PLoop(input);
+				if(input.toCharArray()[0] != '$')
+				{
+					System.out.println(answer.wNum + " " + answer.top + "/" + answer.bottom);
+					
+					//Easter eggs.
+					switch(answer.wNum)
+					{
+						case(8008135):
+							System.out.println("Hahaha, You tried to write boobies.");
+							break;
+						case(1337):
+							System.out.println("Woah man, Far out trip.");
+							break;
+						case(666):
+							System.out.println("Hail stan.");
+							break;
+						case(999):
+							System.out.println("Slow down there, hitler");
+							break;
+						case(117):
+							System.out.println("Spartan John 117? My dad writes his story.");
+							break;
+						default:
+							break;
+					}
+				}
+			/*}
+			catch(Exception e)
+			{
+			  	System.err.println("ERROR: Input is invalid!");
+			}*/
+		}
+		s.close();
+	}
+}
