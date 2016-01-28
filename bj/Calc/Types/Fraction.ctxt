@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=top\ bottom
+comment0.target=Fraction(int,\ int)
+comment1.params=top\ bottom\ WholeNum
+comment1.target=Fraction(int,\ int,\ int)
+comment2.params=
+comment2.target=void\ Simplify()
+comment3.params=
+comment3.target=void\ checkCorrect()
+comment4.params=a\ b
+comment4.target=int\ gcf(int,\ int)
+numComments=5

@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=frac\ name
+comment0.target=Variable(Fraction,\ java.lang.String)
+comment1.params=toParse
+comment1.target=Variable(java.lang.String)
+numComments=2

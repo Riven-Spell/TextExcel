@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=in
+comment0.target=Types.Fraction\ PLoop(java.lang.String)
+comment1.params=in\ Nums\ Fracs\ Divs
+comment1.target=Types.Fraction\ ParseFunctions(java.lang.String,\ java.util.ArrayList,\ java.util.ArrayList,\ java.util.ArrayList)
+comment2.params=in
+comment2.target=boolean\ StillNums(java.lang.String)
+comment3.params=in
+comment3.target=Types.Fraction\ ParseFraction(java.lang.String)
+numComments=4
