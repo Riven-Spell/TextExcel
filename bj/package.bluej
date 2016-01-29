@@ -34,6 +34,7 @@ target4.editor.x=0
 target4.editor.y=0
 target4.height=50
 target4.name=Main
+target4.naviview.expanded=true
 target4.showInterface=false
 target4.type=ClassTarget
 target4.typeParameters=
