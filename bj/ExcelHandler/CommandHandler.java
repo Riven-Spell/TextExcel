@@ -30,8 +30,9 @@ public class CommandHandler
         for(String[] column:sha)
         {
             x++;
+            String sx = "" + x;
             System.out.println("------------+------------+------------+------------+------------+------------+------------+------------+");
-            System.out.print("     " + x + "     |");
+            System.out.print("       ".substring(0,Util.Math.Clamp(0,7,6-(sx.length()-1))) + x + "     |");
             for(String row:column)
             {
                 String sec = "            ";
