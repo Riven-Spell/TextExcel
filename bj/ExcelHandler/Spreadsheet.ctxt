@@ -1,4 +1,10 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Spreadsheet()
-numComments=1
+comment1.params=
+comment1.target=java.lang.String[][]\ getSpreadSheet()
+comment2.params=x\ y\ toSet
+comment2.target=void\ setLoc(int,\ int,\ java.lang.String)
+comment3.params=obj
+comment3.target=int[]\ findObj(java.lang.String)
+numComments=4

@@ -3,4 +3,6 @@ comment0.params=input\ sh
 comment0.target=void\ handle(java.lang.String,\ Spreadsheet)
 comment1.params=sh
 comment1.target=void\ print(Spreadsheet)
-numComments=2
+comment2.params=i
+comment2.target=void\ help(java.lang.String)
+numComments=3
