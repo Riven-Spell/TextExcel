@@ -2,8 +2,22 @@ package ExcelHandler;
 
 public class CommandHandler
 {
+    static String s = "QWERTYUIOPASDFGHJKLZXCVBNM";
     public static void handle(String input, Spreadsheet sh)
     {
+        boolean scream = true;
+        for(char c:input.toCharArray())
+        {
+             if(s.indexOf(c) == -1)
+             {
+                scream = false;
+             }
+        }
+        if(scream)
+        {
+            System.out.println("WOAH, LOOKS LIKE YOU LEFT YOUR CAPS LOCK ON!!!!");
+        }
+        input = input.toLowerCase();
         String i = input;
         if(i.indexOf(' ') != -1)
         {
