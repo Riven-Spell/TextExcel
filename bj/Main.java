@@ -5,7 +5,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        System.out.println("Welcome to TextExcel!");
+        System.out.println("\fWelcome to TextExcel!");
         Spreadsheet sh = new Spreadsheet();
         Scanner s = new Scanner(System.in);
         String input = "";

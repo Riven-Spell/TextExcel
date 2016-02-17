@@ -2,7 +2,8 @@ package ExcelHandler;
 
 public class CommandHandler
 {
-    static String s = "QWERTYUIOPASDFGHJKLZXCVBNM";
+    static String lets = "abcdef";
+    static String s = "QWERTYUIOPASDFGHJKLZXCVBNM1234567890-=!@#%$^&*()_+[]\\{}|;':\"<>?,./";
     public static void handle(String input, Spreadsheet sh)
     {
         boolean scream = true;
@@ -37,20 +38,16 @@ public class CommandHandler
             default:
                 if(input.indexOf('=') != -1)
                 {
-                    if(input.indexOf('"') != -1)
+                    try
                     {
-                        //String detected
+                        char c = input.toCharArray()[0];
+                        int columns = lets.indexOf(c);
+                        String s = input.substring(1,input.indexOf(' '));
+                        sh.setLoc(columns, Integer.parseInt(s) - 1, input.substring(input.indexOf('=')+1));
                     }
-                    else
+                    catch(Exception ex)
                     {
-                        if(input.lastIndexOf('=') != input.lastIndexOf('='))
-                        {
-                            System.err.println("Error: Multiple equals");
-                        }
-                        else
-                        {
-                            
-                        }
+                        System.err.println("dickInvalid command \"" + i + "\" input. Type \"help\" to have a list of commands");
                     }
                 }
                 else
