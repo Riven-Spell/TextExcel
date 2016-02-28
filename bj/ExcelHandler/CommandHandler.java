@@ -35,6 +35,9 @@ public class CommandHandler
             case "cls":
                 System.out.print("\f");
                 break;
+            case "clear":
+                clear(input,sh);
+                break;
             default:
                 if(input.indexOf('=') != -1)
                 {
@@ -47,7 +50,7 @@ public class CommandHandler
                     }
                     catch(Exception ex)
                     {
-                        System.err.println("dickInvalid command \"" + i + "\" input. Type \"help\" to have a list of commands");
+                        System.err.println("Invalid command \"" + i + "\" input. Type \"help\" to have a list of commands");
                     }
                 }
                 else
@@ -60,6 +63,7 @@ public class CommandHandler
         System.out.println("            |     A      |     B      |     C      |     D      |     E      |     F      |     G      |");
         String[][] sha = sh.getSpreadSheet();
         int x = 0;
+        boolean cellFilled=false;
         for(String[] column:sha)
         {
             x++;
@@ -69,7 +73,12 @@ public class CommandHandler
             for(String row:column)
             {
                 String sec = "            ";
-                System.out.print(row.substring(0,Util.Math.Clamp(0,12,row.length())) + sec.substring(0,Util.Math.Clamp(0,12,12 - (row.length()-1))));
+                for(int z=0;z<10;z++){
+                    for(int y=0;y<7;y++){
+                        if(!sha[z][y].equals("")) cellFilled=true;
+                    }
+                }if(!cellFilled) System.out.print(row.substring(0,Util.Math.Clamp(0,12,row.length())) + sec.substring(0,Util.Math.Clamp(0,12,12 - (row.length()-2))));
+                else System.out.print(row.substring(0,Util.Math.Clamp(0,12,row.length())) + sec.substring(0,Util.Math.Clamp(0,12,12 - (row.length()-0))));
                 System.out.print('|');
             }
             System.out.println();
@@ -80,7 +89,7 @@ public class CommandHandler
     {
         if(i.indexOf(' ') == -1)
         {
-            System.out.println("Available commands: \nprint - prints the table out\nexit - exits the program\nhelp [command] - shows this text\ncls - Clear screen");
+            System.out.println("Available commands: \nprint - prints the table out\nexit - exits the program\nhelp [command] - shows this text\ncls - Clear screen\nclear [cell] - Clears the spreadsheet or a cell");
         }
         else
         {
@@ -98,9 +107,29 @@ public class CommandHandler
                 case "cls":
                     System.out.println("Clears the screen. No parameters");
                     break;
+                case "clear":
+                    System.out.println("Clears either the spreedsheet or a specific cell. Parameters: clear [cell]");
                 default:
                     System.err.println("That's not a command I know, or you added too many parameters.");
                     break;
+            }
+        }
+    }
+    
+    public static void clear(String in, Spreadsheet sha){
+        if(in.indexOf(" ")==-1){
+            for(int x=0;x<10;x++){
+                for(int y=0;y<7;y++){
+                    sha.setLoc(x,y,"");
+                }
+            }
+        }else{
+            try{
+                String param=in.substring(in.indexOf(" ")+1);
+                int xVal=Integer.parseInt(param.substring(1))-1;
+                int yVal=lets.indexOf(param.substring(0,1));
+                sha.setLoc(xVal,yVal,"");
+            }catch(Exception ex){
             }
         }
     }

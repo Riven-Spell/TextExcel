@@ -5,4 +5,6 @@ comment1.params=sh
 comment1.target=void\ print(Spreadsheet)
 comment2.params=i
 comment2.target=void\ help(java.lang.String)
-numComments=3
+comment3.params=in\ sha
+comment3.target=void\ clear(java.lang.String,\ Spreadsheet)
+numComments=4
